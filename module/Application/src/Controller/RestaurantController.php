@@ -20,9 +20,9 @@ class RestaurantController extends AbstractRestfulController
 
     public function getList()
     {
-        $textsearch = urlencode($this->params('textsearch'));
+        $textsearch = urlencode('Restaurant '.$this->params('textsearch'));
         $client = new Client();
-        
+
         $type = 'food';
         $api_endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json?key='. $this->config['googlemap_key'] .'&language=th&inputtype=textquery&type='. $type .'&query='. $textsearch;
         $client->setUri($api_endpoint);
